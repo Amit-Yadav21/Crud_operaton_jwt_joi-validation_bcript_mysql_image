@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            margin-bottom: 30px;
+        }
+
+        .card {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            transition: 0.3s;
+            width: 45%;
+            margin-left: 410px;
+            height: 28rem;
+            border-radius: 10px;
+        }
+
+        .adjust {
+            height: 28rem;
+        }
+        .adjust .card img {
+            width: 100%;
+            height: 70%;
+            border-radius: 10px;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        .container {
+            padding: 2px 16px;
+            display: flex;
+            /* Add this line to enable flexbox */
+            flex-wrap: wrap;
+            /* Add this line to allow wrapping of content */
+            justify-content: space-between;
+        }
+
+        .container p {
+            width: 48%;
+            margin-bottom: 5px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .anc {
+            width: 950px;
+            height: auto;
+            font-size: 25px;
+            margin-top: 30px;
+            margin-left: 25px;
+        }
+
+        a {
+            border-top-right-radius: 25px;
+            border-bottom-left-radius: 25px;
+            width: 100px;
+            height: auto;
+            padding: 5px;
+            /* padding-top: 10px; */
+            margin-top: 10px;
+            background-color: rgb(42, 225, 249);
+            color: black;
+            outline: none;
+            text-decoration: none;
+        }
+
+        h1 {
+            width: 55%;
+            background-color: rgb(42, 225, 249);
+            border-radius: 50%;
+            margin-left: 20rem;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="adjust">
+        <div class="anc">
+            <a href="http://localhost:4000/signup">Register</a>
+            <a href="http://localhost:4000/loginPage">Login</a>
+            <a class="ancor" href="http://localhost:4000/alldata">All User Data</a>
+            <a href="http://localhost:4000/loginUserData">login User Data</a>
+            <a href="http://localhost:4000/updatePage">Update Data</a>
+            <a href="http://localhost:4000/logout">Log-Out</a>
+            <a href="http://localhost:4000/deleteuser">Delete login User</a>
+        </div>
+        <h1>Login User Data</h1>
+        <div class="card">
+            <% Datas.forEach(item=> { %>
+                <img src="<%= item.Image %>" alt="login user Image">
+                <div class="container">
+                    <p><b>Employee_id :</b>
+                        <%= item.Employee_ID %>
+                    </p>
+                    <p><b>Name :</b>
+                        <%= item.Name %>
+                    </p>
+                    <p><b>Email :</b>
+                        <%= item.Email %>
+                    </p>
+                    <p><b>Address :</b>
+                        <%= item.Address %>
+                    </p>
+                    <p><b>Phone_Number :</b>
+                        <%= item.Phone_Number %>
+                    </p>
+                </div>
+                <% }) %>
+        </div>
+    </div>
+</body>
+
+</html>

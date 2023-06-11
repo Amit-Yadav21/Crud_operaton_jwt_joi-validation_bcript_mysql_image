@@ -1,0 +1,135 @@
+<html>
+<head>
+  <title>User Registration</title>
+  <!-- <link rel="stylesheet" href="./updatePage.css"> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    body{
+      display: flex;
+      align-items: center;
+      background-color: rgb(254, 246, 246);
+    }
+    .main{
+      /* border: 1px solid red; */
+      width: 30%;
+      margin: auto;
+      text-align: center;
+      border-top-right-radius: 25px;
+      border-bottom-left-radius: 25px;
+      box-shadow: 1px 1px 5px 5px rgba(0, 0, 0, 0.2);
+      background-color: #f7f3f3;
+
+    }
+    input[type=file]{
+      border: 2px solid grey;
+
+    }
+
+    input{
+      margin-top: 20px;
+      width: 80%;
+      font-size: 18px;
+      padding: 8px;
+      border: 2px solid grey;
+      border-radius: 10px;
+     
+    }
+    .button{
+      /* border: 2px solid green; */
+      
+      width: 80%;
+      margin: auto;
+      margin-top: 20px;
+      display: flex;
+      justify-content: space-between;
+
+    }
+    button,a{
+      padding: 7px;
+      width: 80%;
+      font-size: 18px;
+      border-radius: 10px;
+      border: 2px solid grey;
+      margin-bottom: 10px;
+      outline: none;
+      text-decoration: none;
+      color: black;
+    }
+
+    .eye {
+      position: absolute;
+      cursor: pointer;
+    }
+
+    #hide1 {
+      display: none;
+    }
+
+    .fa {
+      margin-left: -30px;
+      margin-top: 30px;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="main">
+    <% if (error) { %>
+      <script>
+              alert('<%= error %> <%= additionalText %>'); // Display the error message and additional text in an alert
+      </script>
+    <% } %>
+
+    <h1>User Info UpdateData</h1>
+    <form action="/updatedata" method="POST" enctype="multipart/form-data">
+      <div>
+        <input type="text" name="Name" placeholder="type here updete name..." autocomplete="off">
+      </div>
+      <div>
+        <input type="email" name="Email" placeholder="type here updated Email...">
+      </div>
+      <div>
+        <input type="password" name="Password" placeholder="type here updated Password..." id="myInput">
+        <span class="eye" onclick="myFunction()">
+          <i id="hide1" class="fa fa-eye"></i>
+          <i id="hide2" class="fa fa-eye-slash"></i>
+        </span>
+      </div>
+      <div>
+        <input type="text" name="Address" placeholder="type here updete address...">
+      </div>
+      <div>
+        <input type="tel" name="Phone_Number" placeholder="type here updete Phone_number...">
+      </div>
+      <div>
+        <input type="file" name="Image">
+      </div>
+      <div class="button">
+        <button type="submit">Update login User</button>
+         <a href="http://localhost:4000/loginPage">login</a>
+      </div>
+    </form>
+  </div>
+
+  <!-- password hide and show code -->
+  <script>
+    function myFunction() {
+      var x = document.getElementById("myInput");
+      var y = document.getElementById("hide1");
+      var z = document.getElementById("hide2");
+
+      if (x.type === "password") {
+        x.type = "text";
+        y.style.display = "block";
+        z.style.display = "none";
+      }
+      else {
+        x.type = "password";
+        y.style.display = "none"
+        z.style.display = "block";
+      }
+    }
+  </script>
+</body>
+</html>
